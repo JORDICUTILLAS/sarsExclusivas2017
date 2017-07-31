@@ -63,10 +63,10 @@ $ok = mail($direccion_destino, $titulo_email, $mensaje, $cabeceras);
 									</form>
 								</li>
 								<li><a href="index.php">INICIO</a></li>
-								<li><a href="#products">PRODUCTOS</a></li>
+								<li><a href="index.php#products">PRODUCTOS</a></li>
 								<li><a href="#">DESCARGAS</a></li>
-								<li><a href="#map">SITUACION</a></li>
-								<li><a href="#contact">CONTACTO</a></li>            
+								<li><a href="index.php#map">SITUACION</a></li>
+								<li><a href="index.php#contact">CONTACTO</a></li>              
 							</ul>     
 						</div><!-- /.navbar-collapse -->
 					</div><!-- /.container-fluid -->

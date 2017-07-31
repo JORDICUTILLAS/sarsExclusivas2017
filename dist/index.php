@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">    
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="content-language" content="es" />
+	<meta name="language" content="es" />
+	<meta name="url" content="http://www.sars-eclusivas.com/" />
+	<meta name="robots" content="all"/>
+	<meta name="revisit-after" content="7 Days">
+	<meta name="Distribution" content="global"/>
+	<meta name="Rating" content="general" />
+	<meta name="mailto" content="dona@sars-exclusivas.com" />
+	<meta name="title" content="sars exclusivas" />
+	<meta name="description" content="Suministros industriales, ferreterías y profesionales de las más de mil referencias en tornillería, anclajes, anclajes químicos, abrazaderas, fijaciones y sistemas de fijación, tuercas, arandelas, tacos de nylon, blisters, libre servicio, clavos, puntas, remaches, brocas, maquinaria, fabricación propia de muebles para cocinas campanas de cocina y promociones ofertas suministrador de tornillería arandelas puertas plegables herramientas anclajes molduras esmeriladoras durómetros compresores reparacion de maquinaraia industrial" />
+	<meta name="keywords" content="Fijaciones, Anclajes, Tacos, Tornillos, Tecnicas Expansivas, Sistemas de fijación, Anclajes químicos, Anclajes homologados, Anclajes grandes cargas, Zamak,España, Europa, badalona,fornitura,tornillos,arandelas,durómetros,esmariladoras,puertas plegables,compresores,cocinas,muebles de cocina,campanas de cocina,reparacion, industrial" />
+	<title>sARs Exclusivas</title>   
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta http-equiv="Content-Language" content="es"/>	
 	<link rel="stylesheet" href="css/normalize.css">  
@@ -14,12 +28,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<title>sars exclusivas</title>
+	
 </head>
 <body>
 	<header>
 		<div class="container">
-			<div class="row">			
+			<div class="row">		
 				
 				<nav class="navbar navbar-default">
 					<div class="container-fluid">
@@ -93,12 +107,12 @@
 						<hr class="line-separator line-separator-color-1"/>
 					</div>
 					<div class="products-category">
-						<a href="#" class="link-products-category"> - para cubiertas y fachadas  </a>
-						<a href="#" class="link-products-category"> - broca, rosca chapa y PVC  </a>
-						<a href="#" class="link-products-category"> - para madera  </a>
-						<a href="#" class="link-products-category"> - para tabiquería seca  </a>
-						<a href="#" class="link-products-category"> - rosca métrica  </a>
-						<a href="#" class="link-products-category"> - Tapones, puntas y accesorios  </a>
+						<a href="tornillos-para-cubiertas-y-fachadas.php" class="link-products-category"> - para cubiertas y fachadas  </a>
+						<a href="tornillos-rosca-chapa-y-pvc.php" class="link-products-category"> - broca, rosca chapa y PVC  </a>
+						<a href="tornillos-para-madera.php" class="link-products-category"> - para madera  </a>
+						<a href="tornillos-para-tabiqueria-seca.php" class="link-products-category"> - para tabiquería seca  </a>
+						<a href="tornillos-rosca-metrica.php" class="link-products-category"> - rosca métrica  </a>
+						<a href="tapones-puntas-y-accesorios.php" class="link-products-category"> - Tapones, puntas y accesorios  </a>
 					</div>
 				</div>
 
@@ -109,10 +123,10 @@
 						<hr class="line-separator line-separator-color-2"/>
 					</div>
 					<div class="products-category">
-						<a href="#" class="link-products-category"> - metálicos  </a>
-						<a href="#" class="link-products-category"> - químicos </a>
-						<a href="#" class="link-products-category"> - plásticos </a>
-						<a href="#" class="link-products-category"> - Fijaciones para materiales huecos </a>						
+						<a href="anclajes-metalicos.php" class="link-products-category"> - metálicos  </a>
+						<a href="anclajes-quimicos.php" class="link-products-category"> - químicos </a>
+						<a href="anclajes-plasticos.php" class="link-products-category"> - plásticos </a>
+						<a href="fijaciones-para-materiales-huecos.php" class="link-products-category"> - Fijaciones para materiales huecos </a>						
 					</div>
 				</div>
 
@@ -123,12 +137,12 @@
 						<hr class="line-separator line-separator-color-3"/>
 					</div>
 					<div class="products-category">
-						<a href="#" class="link-products-category"> - abrazaderas </a>
-						<a href="#" class="link-products-category"> - accesorios para tornillería </a>
-						<a href="#" class="link-products-category"> - soportación </a>
-						<a href="#" class="link-products-category"> - conectores para madera </a>
-						<a href="#" class="link-products-category"> - puntas y alcayatas </a>
-						<a href="#" class="link-products-category"> - remaches </a>
+						<a href="abrazaderas.php" class="link-products-category"> - abrazaderas </a>
+						<a href="accesorios-para-tornilleria.php" class="link-products-category"> - accesorios para tornillería </a>
+						<a href="soportación.php" class="link-products-category"> - soportación </a>
+						<a href="conectores-para-madera.php" class="link-products-category"> - conectores para madera </a>
+						<a href="puntas-y-alcayatas.php" class="link-products-category"> - puntas y alcayatas </a>
+						<a href="remaches.php" class="link-products-category"> - remaches </a>
 					</div>
 				</div>
 
@@ -139,7 +153,7 @@
 						<hr class="line-separator line-separator-color-4"/>
 					</div>
 					<div class="products-category">
-						<a href="#" class="link-products-category"> - click para ver todas las herramientas  </a>						
+						<a href="herramientas.php" class="link-products-category"> - click para ver todas las herramientas  </a>						
 					</div>
 				</div>
 
@@ -151,7 +165,7 @@
 						<hr class="line-separator line-separator-color-5"/>
 					</div>
 					<div class="products-category">
-						<a href="#" class="link-products-category"> - click para ver toda la maquinaria  </a>
+						<a href="maquinaria.php" class="link-products-category"> - click para ver toda la maquinaria  </a>
 					</div>
 				</div>
 
@@ -192,7 +206,7 @@
 						
 
 						<div class="col-md-12">
-							<textarea style="height:100px;" class="input-textContact" id="pedido" name="Pedido" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'"></textarea> 
+							<textarea style="height:100px;" class="input-textContact" id="pedido" name="Pedido" placeholder="Consulta" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Consulta'"></textarea> 
 						</div>
 
 						<button class="btn-contact">CONTACTAR</button>

@@ -127,10 +127,10 @@ $queryString_productos = sprintf("&totalRows_productos=%d%s", $totalRows_product
 									</form>
 								</li>
 								<li><a href="index.php">INICIO</a></li>
-								<li><a href="#products">PRODUCTOS</a></li>
+								<li><a href="index.php#products">PRODUCTOS</a></li>
 								<li><a href="#">DESCARGAS</a></li>
-								<li><a href="#map">SITUACION</a></li>
-								<li><a href="#contact">CONTACTO</a></li>            
+								<li><a href="index.php#map">SITUACION</a></li>
+								<li><a href="index.php#contact">CONTACTO</a></li>               
 							</ul>     
 						</div><!-- /.navbar-collapse -->
 					</div><!-- /.container-fluid -->
@@ -139,44 +139,38 @@ $queryString_productos = sprintf("&totalRows_productos=%d%s", $totalRows_product
 
 		</div>
 	</header>
-	<section class="intro">
-		<div class="content-intro">
-			<h2>
-				TORNILLERÍA Y PRODUCTOS DE INSTALACIÓN.
-			</h2>
-			<h3> Buen precio a distribuidores , contactar para información.</h3>
+	<section>
+		<div class="content-search">			
+			<h3> Resultado: <?php echo $totalRows_productos; ?> articulo/s en total </h3>
 		</div>
 	</section>
 	
-	<section class="content-sections">
-		Resultado: <?php echo $totalRows_productos; ?> articulo/s en total 
+	<section class="content-sections" style="padding-top: 5px;">		
 
-		
-
-		<div style="text-align:center; width:700px;">
+		<div class="paginator">
 			<?php if ($pageNum_productos > 0) { // Show if not first page ?>
-			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, 0, $queryString_productos); ?>"><img src="./First.gif" /></a>
+			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, 0, $queryString_productos); ?>"><img src="img/First.jpg" /></a>
 			<?php } // Show if not first page ?>
 			<?php if ($pageNum_productos > 0) { // Show if not first page ?>
-			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, max(0, $pageNum_productos - 1), $queryString_productos); ?>"><img src="./Previous.gif" /></a>
+			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, max(0, $pageNum_productos - 1), $queryString_productos); ?>"><img src="img/Previous.jpg" /></a>
 			<?php } // Show if not first page ?>
 			<?php if ($pageNum_productos < $totalPages_productos) { // Show if not last page ?>
-			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, min($totalPages_productos, $pageNum_productos + 1), $queryString_productos); ?>"><img src="./Next.gif" /></a>
+			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, min($totalPages_productos, $pageNum_productos + 1), $queryString_productos); ?>"><img src="img/Next.jpg" /></a>
 			<?php } // Show if not last page ?>
 			<?php if ($pageNum_productos < $totalPages_productos) { // Show if not last page ?>
-			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, $totalPages_productos, $queryString_productos); ?>"><img src="./Last.gif" /></a>
+			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, $totalPages_productos, $queryString_productos); ?>"><img src="img/Last.jpg" /></a>
 			<?php } // Show if not last page ?>
 		</div>
 
 		<div class="container">
-			<div class="row center-block content-products" id="card-products">
+			<div class="row center-block content-products" style="margin-top: 0px" id="card-products">
 				
 
 				<?php if ($totalRows_productos > 0) { // Show if recordset not empty ?>
 				<?php do { ?>
 
 				<div class="col-lg-3 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-					<div class="card-products col-md-12">
+					<div class="card-products card-products-search col-md-12">
 					<img src="../<?php echo $row_productos['foto']; ?>" style="width:100%;" class="img-products" />
 					<div style="margin-top:10px">							
 						<h3 class="title-products"><?php echo $row_productos['referencia']; ?>  </h3>
@@ -200,23 +194,20 @@ $queryString_productos = sprintf("&totalRows_productos=%d%s", $totalRows_product
 			</div>
 		</div>
 
-
-		<div style="text-align:center; width:700px;">
+		<div class="paginator">
 			<?php if ($pageNum_productos > 0) { // Show if not first page ?>
-			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, 0, $queryString_productos); ?>"><img src="./First.gif" /></a>
+			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, 0, $queryString_productos); ?>"><img src="img/First.jpg" /></a>
 			<?php } // Show if not first page ?>
 			<?php if ($pageNum_productos > 0) { // Show if not first page ?>
-			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, max(0, $pageNum_productos - 1), $queryString_productos); ?>"><img src="./Previous.gif" /></a>
+			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, max(0, $pageNum_productos - 1), $queryString_productos); ?>"><img src="img/Previous.jpg" /></a>
 			<?php } // Show if not first page ?>
 			<?php if ($pageNum_productos < $totalPages_productos) { // Show if not last page ?>
-			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, min($totalPages_productos, $pageNum_productos + 1), $queryString_productos); ?>"><img src="./Next.gif" /></a>
+			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, min($totalPages_productos, $pageNum_productos + 1), $queryString_productos); ?>"><img src="img/Next.jpg" /></a>
 			<?php } // Show if not last page ?>
 			<?php if ($pageNum_productos < $totalPages_productos) { // Show if not last page ?>
-			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, $totalPages_productos, $queryString_productos); ?>"><img src="./Last.gif" /></a>
+			<a href="<?php printf("%s?pageNum_productos=%d%s", $currentPage, $totalPages_productos, $queryString_productos); ?>"><img src="img/Last.jpg" /></a>
 			<?php } // Show if not last page ?>
 		</div>
-
-
 		
 	</section>
 
