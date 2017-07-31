@@ -1,0 +1,30 @@
+{
+  "name": "intermed_jordi",
+  "version": "1.0.0",
+  "description": "projectintermed",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "imagemin-pngquant": "^4.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-sass": "^2.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jordiCutillas",
+  "license": "ISC",
+  "homepage": "https://github.com/JORDICUTILLAS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JORDICUTILLAS"
+  },
+  "bugs": {
+    "url": "https://github.com/JORDICUTILLAS"
+  }
+}
