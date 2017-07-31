@@ -36,26 +36,40 @@ $ok = mail($direccion_destino, $titulo_email, $mensaje, $cabeceras);
 <body>
 	<header>
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-3 col-sm-12 content-logo">
-					<img src="img/logo.jpg">
-				</div>
-				<div class="search">
-					<form action="buscador.php" method="GET" id="buscaenlaweb" name="buscaenlaweb">
-						<input type="text" class="text-input" name="buscatext" placeholder="Buscador" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Buscador'"/>						
-						<button name="button" type="submit" class="btn-search" id="enviar" onclick="buscaenlaweb.submit()" >
-							<img src="img/search.jpg" class="img-search"/>
-						</button>
-					</form>
-				</div>
-				<nav class="col-lg-8 col-md-9 col-sm-12">
-					<ul>
-						<li><a href="index.php">INICIO</a></li>
-						<li><a href="index.php#products">PRODUCTOS</a></li>
-						<li><a href="#">DESCARGAS</a></li>
-						<li><a href="index.php#map">SITUACION</a></li>
-						<li><a href="index.php#contact">CONTACTO</a></li>
-					</ul>
+			<div class="row">			
+				
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<img src="img/logo.jpg">
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul>
+								<li class="search">
+									<form action="buscador.php" method="GET" id="buscaenlaweb" name="buscaenlaweb">
+										<input type="text" class="text-input" name="buscatext" placeholder="Buscador" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Buscador'"/>            
+										<button name="button" type="submit" class="btn-search" id="enviar" onclick="buscaenlaweb.submit()" >
+											<img src="img/search.jpg" class="img-search"/>
+										</button>
+									</form>
+								</li>
+								<li><a href="index.php">INICIO</a></li>
+								<li><a href="#products">PRODUCTOS</a></li>
+								<li><a href="#">DESCARGAS</a></li>
+								<li><a href="#map">SITUACION</a></li>
+								<li><a href="#contact">CONTACTO</a></li>            
+							</ul>     
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
 				</nav>
 			</div>
 

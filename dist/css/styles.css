@@ -120,6 +120,11 @@ nav li {
   font-size: 12px; }
   nav li:last-child {
     margin-right: 0px; }
+  nav li:first-child {
+    margin-right: 0px;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 19px; }
 
 nav a:link {
   text-decoration: none;
@@ -132,8 +137,15 @@ nav a:hover {
   border-top: solid 1px #326c8b;
   padding-top: 3px; }
 
+.navbar-default {
+  background-color: #fff !important;
+  border: none !important; }
+
+.navbar {
+  margin-bottom: 15px !important; }
+
 .search {
-  position: relative;
+  display: block;
   top: 0;
   right: 0;
   text-align: right;

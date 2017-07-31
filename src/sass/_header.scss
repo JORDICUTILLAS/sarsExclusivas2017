@@ -4,12 +4,12 @@ nav {
 	ul{
 		list-style: none;
 		text-align: right;		
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 0;
-    margin-top: 10px;
+		-webkit-margin-before: 0;
+		-webkit-margin-after: 0;
+		-webkit-margin-start: 0px;
+		-webkit-margin-end: 0px;
+		-webkit-padding-start: 0;
+		margin-top: 10px;
 	}
 
 	li{
@@ -20,30 +20,46 @@ nav {
 		&:last-child{
 			margin-right: 0px;	
 		}
+		&:first-child{
+			margin-right: 0px;
+			padding-right: 0;
+			padding-top: 0;
+			padding-bottom: 19px;	
+		}
+		
 	}
 
 	a:link{
 		text-decoration: none;
 		-webkit-transition: all 0.5s ease;
-    -moz-transition:all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    border-top: solid 8px transparent;
-    padding-top: 6px;
+		-moz-transition:all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+		border-top: solid 8px transparent;
+		padding-top: 6px;
 
 	}
 
 	a:hover{
 
-		 text-decoration: none;   
-     border-top: solid 1px #326c8b;
-     padding-top: 3px;
+		text-decoration: none;   
+		border-top: solid 1px #326c8b;
+		padding-top: 3px;
 		
 	}
 }
 
-.search{
-	position: relative;
+.navbar-default {
+    background-color: #fff !important; 
+    border: none !important;
+   }
+
+.navbar{
+	margin-bottom: 15px !important;
+}
+
+.search{	
+	display: block;
 	top:0;
 	right:0;
 	text-align: right;
@@ -64,38 +80,38 @@ nav {
 .text-input{
 	@include border-radius;
 	width: 170px;
-    border: 1px solid #dedede;
-    height: 31px;
-    padding-right: 25px;
-    padding-left: 10px;
-    margin-right: -25px;
-    transition: all 0.3s ease;
-    outline: none;
-    font-size: 12px;    
-    &:focus{
-    	width: 230px;
-    	outline: none;
-    	box-shadow: 0px 1px 2px 0px rgba(128,128,128,0.5);        	
-    }
+	border: 1px solid #dedede;
+	height: 31px;
+	padding-right: 25px;
+	padding-left: 10px;
+	margin-right: -25px;
+	transition: all 0.3s ease;
+	outline: none;
+	font-size: 12px;    
+	&:focus{
+		width: 230px;
+		outline: none;
+		box-shadow: 0px 1px 2px 0px rgba(128,128,128,0.5);        	
+	}
 
-    &:hover{
-    	border: 1px solid #F47920;
-    	box-shadow: 0px 1px 2px 0px rgba(128,128,128,0.5);
-    }   
+	&:hover{
+		border: 1px solid #F47920;
+		box-shadow: 0px 1px 2px 0px rgba(128,128,128,0.5);
+	}   
 }
 
 @media screen and (max-width: 991px){	
 
-nav {	
-	ul{	
-	text-align: center;	
-    margin-top: 20px;
-    margin-bottom: 20px;
-	}
+	nav {	
+		ul{	
+			text-align: center;	
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
 
-	li{		
-		font-size: 14px;
-		font-weight: bold;
+		li{		
+			font-size: 14px;
+			font-weight: bold;
+		}
 	}
-}
 }
