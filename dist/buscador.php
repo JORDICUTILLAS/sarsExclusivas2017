@@ -33,7 +33,7 @@ if (!function_exists("GetSQLValueString")) {
 
 $currentPage = $_SERVER["PHP_SELF"];
 
-$maxRows_productos = 60;
+$maxRows_productos = 16;
 $pageNum_productos = 0;
 if (isset($_GET['pageNum_productos'])) {
 	$pageNum_productos = $_GET['pageNum_productos'];
@@ -128,7 +128,7 @@ $queryString_productos = sprintf("&totalRows_productos=%d%s", $totalRows_product
 								</li>
 								<li><a href="index.php">INICIO</a></li>
 								<li><a href="index.php#products">PRODUCTOS</a></li>
-								<li><a href="#">DESCARGAS</a></li>
+								<li><a href="pdf/catalogo_de_herramientas.pdf">DESCARGAS</a></li>
 								<li><a href="index.php#map">SITUACION</a></li>
 								<li><a href="index.php#contact">CONTACTO</a></li>               
 							</ul>     

@@ -120,7 +120,7 @@ $queryString_productos = sprintf("&totalRows_productos=%d%s", $totalRows_product
 								</li>
 								<li><a href="index.php">INICIO</a></li>
 								<li><a href="index.php#products">PRODUCTOS</a></li>
-								<li><a href="#">DESCARGAS</a></li>
+								<li><a href="pdf/catalogo_de_herramientas.pdf">DESCARGAS</a></li>
 								<li><a href="index.php#map">SITUACION</a></li>
 								<li><a href="index.php#contact">CONTACTO</a></li>            
 							</ul>     

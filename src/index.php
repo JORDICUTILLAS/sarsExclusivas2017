@@ -61,7 +61,7 @@
 								</li>
 								<li><a href="index.php">INICIO</a></li>
 								<li><a href="#products">PRODUCTOS</a></li>
-								<li><a href="#">DESCARGAS</a></li>
+								<li><a href="pdf/catalogo_de_herramientas.pdf">DESCARGAS</a></li>
 								<li><a href="#map">SITUACION</a></li>
 								<li><a href="#contact">CONTACTO</a></li>            
 							</ul>     
@@ -86,10 +86,10 @@
 		<div class="container">
 			<div class="row content-btn-ofers">
 				<div class="col-lg-3 col-lg-offset-3 col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-					<a href="#" class="link-ofers-news">OFERTAS</a>
+					<a href="ofertas.php" class="link-ofers-news">OFERTAS</a>
 				</div>
 				<div class="col-lg-3 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-					<a href="#" class="link-ofers-news link-ofers-news-margin">NOVEDADES</a>
+					<a href="novedades.php" class="link-ofers-news link-ofers-news-margin">NOVEDADES</a>
 				</div>
 			</div>
 		</div>
