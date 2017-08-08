@@ -1,4 +1,6 @@
+
 <?php
+header("Content-Type: text/html;charset=utf-8");
 include "Connections/productos.php";
 if (!session_id()) session_start();
 if (!$_SESSION['logon']){ 
@@ -35,21 +37,31 @@ if (!$_SESSION['logon']){
         <a href="productos.php" Title="IR AL INICIO"><img src="img/home.png" class="imgAll" alt="IR AL INICIO"></a>
 </div>    
 
+
+
 <?php    
-$idcategoria = $_GET['idcategoria'];
+$idcategoria =  $_GET['idcategoria'];
 $descategoria = $_GET['descategoria'];
 $referencia = $_GET['referencia'];
 $foto = $_GET['foto'];
 $oferta = $_GET['oferta'];
 $novedad = $_GET['novedad'];
-$descripcion = $_GET['descripcion'];
+$descripcion1 = $_GET['descripcion'];
+
+$descripcion = htmlentities($descripcion1, ENT_QUOTES);
+
     // gets value sent over search form     
 $min_length = 3;
     // you can set minimum length of the query if you want     
     if(strlen($referencia) >= $min_length){ // if query length is more or equal minimum length then         
        $idcategoria = htmlspecialchars($idcategoria); 
         // changes characters used in html to their equivalents, for example: < to &gt;         
-       $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));        
+       $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion)); 
+       
+       @mysql_query("SET NAMES 'utf8'",$link);
+       $conexion->set_charset("utf8");
+      
+
        $query = "INSERT into productos(
         id_categoria, 
         desc_categoria, 
@@ -71,6 +83,11 @@ values
     '".$novedad."'
 
     )";
+
+    
+    @mysql_query("SET NAMES 'utf8'",$link);
+    $conexion->set_charset("utf8");  
+
 
 if ($conexion->query($query) === TRUE) {
         //echo "ACTUALIZADO CORRECTAMENTE ROSALIA TONTA!!!";
