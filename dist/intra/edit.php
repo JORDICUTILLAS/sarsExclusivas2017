@@ -4,7 +4,7 @@ if (!session_id()) session_start();
 if (!$_SESSION['logon']){ 
     header("Location:index.php");
     die();
-    }
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,7 +28,7 @@ if (!$_SESSION['logon']){
             <input type="text" class="inputsLogin inputsearch" name="nombre_cliente" placeholder="Nombre o Apellidos">
             <input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR CLIENTE">           
         </form>
-       <a href="todos-clientes.php" Title="BUSCAR TODOS LOS CLIENTES"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS CLIENTES"></a>
+        <a href="todos-clientes.php" Title="BUSCAR TODOS LOS CLIENTES"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS CLIENTES"></a>
         <a href="anadir-cliente.php" Title="AÑADIR CLIENTE"><img src="img/add.png" class="imgAll" alt="AÑADIR CLIENTE"></a>
         <a href="reporteexcel.php" Title="DESCARGAR INFORME"><img src="img/excel.png" class="imgAll" alt="DESCARGAR INFORME"></a>
         <a href="clientes.php" Title="IR AL INICIO"><img src="img/home.png" class="imgAll" alt="IR AL INICIO"></a>
@@ -41,11 +41,14 @@ if (!$_SESSION['logon']){
     if(strlen($id) >= $min_length){ // if query length is more or equal minimum length then         
       $id = htmlspecialchars($id); 
         // changes characters used in html to their equivalents, for example: < to &gt;         
-       $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));        
-       $query = "SELECT * FROM productos WHERE (`id` LIKE ".$id.")";
-       $resultado = $conexion->query($query); 
+      $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));        
+      $query = "SELECT * FROM productos WHERE (`id` LIKE ".$id.")";
+      @mysql_query("SET NAMES 'utf8'",$link);
+      $conexion->set_charset("utf8");  
+
+      $resultado = $conexion->query($query); 
         if(mysqli_num_rows($resultado) > 0){ // if one or more rows are returned do following
-                         
+
             while($results = mysqli_fetch_array($resultado)){
             // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop             
                 echo "
@@ -55,11 +58,11 @@ if (!$_SESSION['logon']){
                 
                 <label class='labelEdit'>ID CATEGORIA:</label>
                 <input class='inputsLogin inputsEdit' type='text' value='".$results['id_categoria']."' name='idcategoria' placeholder='".$results['id_categoria']."'>
-               
+
                 
                 <label class='labelEdit'>Desc CATEGORIA:</label>
                 <input class='inputsLogin inputsEdit' type='text' value='".$results['desc_categoria']."' name='descategoria' placeholder='".$results['desc_categoria']."'>
-                 
+
                 <label class='labelEdit'>DESCRIPCIÓN:</label>
                 <input class='inputsLogin inputsEdit' type='text' value='".$results['descripcion']."' name='descripcion' placeholder='".$results['descripcion']."'>
                 
@@ -73,22 +76,22 @@ if (!$_SESSION['logon']){
                 <input class='inputsLogin inputsEdit' type='text' value='".$results['foto_info']."' name='foto_info' placeholder='".$results['foto_info']."'>
                 
                 <label class='labelEdit'>OFERTA:</label>
-                <input class='inputsLogin inputsEdit' type='text' value='".$results['oferta']."' name='oferta' placeholder='".$results['oferta']."'>
-                
+                <input class='inputsLogin inputsEdit' type='checkbox' id='checkOfer' value='".$results['oferta']."' name='oferta' placeholder='".$results['oferta']."'>
+
+
                 <label class='labelEdit'>NOVEDAD:</label>
-                <input class='inputsLogin inputsEdit' type='text' value='".$results['novedad']."' name='novedad' placeholder='".$results['novedad']."'>
-                
-                
-                
+                <input class='inputsLogin inputsEdit' type='checkbox' id='checkNew' value='".$results['novedad']."' name='novedad' placeholder='".$results['novedad']."'>
+
+
                 <input class='btnLogin btnEdit' type='submit' name='enviar' value='EDITAR' STYLE='width:48%; margin-right:2%; box-sizing:border-box;'><a href='productos.php' STYLE='width:48%; line-height: 45px; box-sizing:border-box; vertical-align: bottom;' class='btnLogin btnEdit'> CANCELAR </a> 
-                 
+
                 </form>
                 </div>
-               ";
+                ";
 
-               $conexion->close();
+                $conexion->close();
             }
-           
+
         }
         else{ // if there is no matching rows do following
             echo "No results";
@@ -103,16 +106,35 @@ if (!$_SESSION['logon']){
     ?>
 
 
-   
 
-<script type="text/javascript">
-var valueBd = document.getElementById('date').value;
 
-var myDate = new Date();
-document.getElementById('date').value =  myDate.getDate()+ "/" +(myDate.getMonth() + 1) + "/" + myDate.getFullYear()+ ("\n") + ("\n") + valueBd ;
-</script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> <!–- Importante llamar antes a jQuery para que funcione bootstrap.min.js   -–> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> <!–- Llamamos al JavaScript  a través de CDN -–>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> <!–- Llamamos al JavaScript  a través de CDN -–>  
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#checkOfer").on('change', function() {
+          if ($(this).is(':checked')) {
+            $(this).attr('value', '1');
+        } else {
+            $(this).attr('value', '0');
+        }      
+    });
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#checkNew").on('change', function() {
+          if ($(this).is(':checked')) {
+            $(this).attr('value', '1');
+        } else {
+            $(this).attr('value', '0');
+        }      
+    });
+    });
+    </script>  
+
 </body>
 </html>

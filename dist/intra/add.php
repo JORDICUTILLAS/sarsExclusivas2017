@@ -46,9 +46,8 @@ $referencia = $_GET['referencia'];
 $foto = $_GET['foto'];
 $oferta = $_GET['oferta'];
 $novedad = $_GET['novedad'];
-$descripcion1 = $_GET['descripcion'];
+$descripcion = $_GET['descripcion'];
 
-$descripcion = htmlentities($descripcion1, ENT_QUOTES);
 
     // gets value sent over search form     
 $min_length = 3;

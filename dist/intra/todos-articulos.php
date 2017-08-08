@@ -8,9 +8,10 @@ if (!$_SESSION['logon']){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+	
+	<meta charset="utf-8">    
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
 	<meta http-equiv="Content-Language" content="es"/>
 	<meta name="description" content="" />
@@ -41,14 +42,22 @@ if (!$_SESSION['logon']){
 	 mysql_set_charset('utf8',$conexion);       
 	
 	$conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));
+
+	@mysql_query("SET NAMES 'utf8'",$link);
+    $conexion->set_charset("utf8");  
 	 
-	 mysql_query("SET NAMES 'utf8'");
-	 mysql_set_charset('utf8',$conexion);
+	 
 
 	//$query = "SELECT * FROM clientes";	
 	$query = "SELECT * FROM productos";
-	mysql_query("SET NAMES 'utf8'");
+		
+		@mysql_query("SET NAMES 'utf8'",$link);
+    $conexion->set_charset("utf8");  
+
 	$resultado = $conexion->query($query);
+
+	
+	
 	if(mysqli_num_rows($resultado) > 0){
 		echo "<div id='third-container' class='cotentTable' style='padding-top:0px;'><table class='table table-bordered table-hover table-striped table-condensed'><tbody>
 
@@ -62,7 +71,10 @@ if (!$_SESSION['logon']){
 		</tr>
 
 		";         
-		while($results = mysqli_fetch_array($resultado)){           
+		while($results = mysqli_fetch_array($resultado)){ 
+
+			
+
 			echo "<tr><td>".$results['id_categoria']."</td><td>".$results['desc_categoria']."</td><td>".$results['descripcion']."</td><td>".$results['referencia']."
 			</td><td>".$results['foto']."</td><td style='display: contents;'>
 			<div class='popup'>
