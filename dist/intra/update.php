@@ -51,10 +51,15 @@ if (!$_SESSION['logon']){
     if(strlen($id) >= $min_length){ // if query length is more or equal minimum length then         
      $id = htmlspecialchars($id); 
         // changes characters used in html to their equivalents, for example: < to &gt;         
-     $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));        
+     $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));
+     @mysql_query("SET NAMES 'utf8'",$link);
+      $conexion->set_charset("utf8");        
      $query = "UPDATE productos 
      SET id_categoria = '$idcategoria', desc_categoria = '$descategoria', descripcion = '$descripcion', referencia = '$referencia', foto = '$foto', foto_info = '$foto_info', oferta = '$oferta', novedad = '$novedad'
      WHERE id = '$id'";
+
+     @mysql_query("SET NAMES 'utf8'",$link);
+      $conexion->set_charset("utf8");  
         
 
      if ($conexion->query($query) === TRUE) {

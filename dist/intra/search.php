@@ -62,9 +62,16 @@ function rsvpsubmit() {
     if(strlen($nombre_cliente) >= $min_length){ // if query length is more or equal minimum length then         
        $nombre_cliente = htmlspecialchars($nombre_cliente); 
         // changes characters used in html to their equivalents, for example: < to &gt;         
-       $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));        
+       $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));
+
+       @mysql_query("SET NAMES 'utf8'",$link);
+      $conexion->set_charset("utf8");  
+
        $query = "SELECT * FROM productos WHERE (`descripcion` LIKE '%".$nombre_cliente."%') OR (`referencia` LIKE '%".$nombre_cliente."%') ";
        //$query = "SELECT * , (SELECT SUM( coste ) FROM facturacion WHERE clientes.ID = facturacion.ID_fact ) AS gastado FROM clientes WHERE (`nombre` LIKE '%".$nombre_cliente."%') OR (`apellidos` LIKE '%".$nombre_cliente."%')";
+
+       @mysql_query("SET NAMES 'utf8'",$link);
+      $conexion->set_charset("utf8");  
 
        $resultado = $conexion->query($query); 
        if(mysqli_num_rows($resultado) > 0){
