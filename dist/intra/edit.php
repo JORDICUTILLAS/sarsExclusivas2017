@@ -114,6 +114,35 @@ if (!$_SESSION['logon']){
 
     <script type="text/javascript">
     $(document).ready(function(){
+        var atributo = $("#checkOfer").val();
+        console.log (atributo);      
+          if (atributo == "1")  {
+            $("#checkOfer").prop('checked', true);
+            console.log ('si');
+        } else {
+            $("#checkOfer").prop('checked', false); 
+            console.log ('no');       
+        }      
+    
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        var atributo = $("#checkNew").val();
+        console.log (atributo);      
+          if (atributo == "1")  {
+            $("#checkNew").prop('checked', true);
+        } else {
+            $("#checkNew").prop('checked', false);        
+        }      
+    
+    });
+    </script>
+    
+
+    <script type="text/javascript">
+    $(document).ready(function(){
         $("#checkOfer").on('change', function() {
           if ($(this).is(':checked')) {
             $(this).attr('value', '1');
