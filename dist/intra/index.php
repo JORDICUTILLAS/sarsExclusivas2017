@@ -11,13 +11,14 @@
 	<link rel="stylesheet" href="css/normalize.css"> 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/styles.css">
-	<title>SARS-GESTION PRODUCTOS</title>
+	<title>php-GESTION CLIENTES</title>
 	<body>
 		<div class="back_full_screen">
 			<div class="container alignVerticalHorizontal bgLogin">
 				<div class="container col-center" style="max-width: 400px">
-					<form class="form-horizontal center-element" style="margin-top:26px;" name="form" ACTION="login.php" method="POST">						
-						<p style="color:#9f9b9b; font-size:12px;"> Gestión de productos</p>
+					<form class="form-horizontal center-element" style="margin-top:26px;" name="form" ACTION="login.php" method="POST">
+						<div class="contentLogo"><img style="margin-top: 25px;" src="img/logo.png"></div>
+						<p style="color:#9f9b9b; font-size:12px;"> gestión de clientes</p>
 						<div class="form-group">					
 							<div class="col-xs-12">
 								<input type="text" class="inputsLogin" name="usuario" placeholder="Usuario">

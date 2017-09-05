@@ -27,10 +27,10 @@ if (!$_SESSION['logon']){
 	<div class='opacityPopUp'>
 	</div>		
 	<div class="headSearch" style="position:inherit">
-		<H1 class="title">Todos los Cliente</H1>           
+		<H1 class="title">Todos los Articulos</H1>           
 		<form class="searchCli" name="form" ACTION="search.php" method="GET">           
 			<input type="text" class="inputsLogin inputsearch" name="nombre_cliente" placeholder="Nombre o Apellidos">
-			<input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR CLIENTE">           
+			<input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR PRODUCTOS">           
 		</form>
        <a href="todos-clientes.php" Title="BUSCAR TODOS LOS CLIENTES"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS CLIENTES"></a>
 		<a href="anadir-cliente.php" Title="AÑADIR CLIENTE"><img src="img/add.png" class="imgAll" alt="AÑADIR CLIENTE"></a>

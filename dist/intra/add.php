@@ -13,7 +13,7 @@ if (!$_SESSION['logon']){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Busqueda Cliente</title>
+    <title>Busqueda Productos</title>
     <meta charset="UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <meta http-equiv="Content-Language" content="es"/>
@@ -26,10 +26,10 @@ if (!$_SESSION['logon']){
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body><div class="headSearch" style="position:inherit">
-    <H1 class="title">Editar Cliente OK!</H1>           
+    <H1 class="title">Añadir Articulo OK!</H1>           
     <form class="searchCli" name="form" ACTION="search.php" method="GET">           
         <input type="text" class="inputsLogin inputsearch" name="nombre_cliente" placeholder="Nombre o Apellidos">
-        <input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR CLIENTE">           
+        <input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR PRODUCTO">           
     </form>
     <a href="todos-articulos.php" Title="BUSCAR TODOS LOS CLIENTES"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS CLIENTES"></a>
         <a href="anadir-articulo.php" Title="AÑADIR CLIENTE"><img src="img/add.png" class="imgAll" alt="AÑADIR CLIENTE"></a>
@@ -112,8 +112,7 @@ if ($conexion->query($query) === TRUE) {
 
 
     <div class="contentNameOk" style="margin: 0 auto; display: block;">
-        <p> <?php echo $nombre ?> </p>
-        <p> <?php echo $apellidos ?></p>
+        <p> <?php echo $referencia ?> </p>        
         <p style="font-size: 20px;"> Actualizado correctamente!</p>
         <a href="clientes.php">volver</a>
     </div>

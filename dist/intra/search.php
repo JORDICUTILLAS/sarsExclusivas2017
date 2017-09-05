@@ -42,7 +42,7 @@ function rsvpsubmit() {
         <H1 class="title">Busqueda Articulo</H1>           
         <form class="searchCli" name="form" ACTION="search.php" method="GET">           
             <input type="text" class="inputsLogin inputsearch" name="nombre_cliente" placeholder="Nombre o Apellidos">
-            <input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR CLIENTE">           
+            <input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR PRODUCTOS">           
         </form>
        <a href="todos-clientes.php" Title="BUSCAR TODOS LOS CLIENTES"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS CLIENTES"></a>
         <a href="anadir-cliente.php" Title="AÑADIR CLIENTE"><img src="img/add.png" class="imgAll" alt="AÑADIR CLIENTE"></a>

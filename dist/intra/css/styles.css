@@ -75,7 +75,7 @@ html, body {
   margin-bottom: 5px; }
 
 .btnsearch {
-  max-width: 150px;
+  max-width: 166px;
   height: 31px;
   margin-bottom: 5px; }
   .btnsearch:hover {
@@ -115,7 +115,7 @@ html, body {
 
 .searchCli {
   display: inline-block;
-  width: 356px;
+  width: 380px;
   float: right; }
 
 .cotentTable {
