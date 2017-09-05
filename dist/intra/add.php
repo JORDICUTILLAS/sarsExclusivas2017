@@ -39,40 +39,27 @@ if (!$_SESSION['logon']){
 
 
 
-<?php    
+<?php  
+
+$target = "img/" . basename($_FILES['foto']['name']);
+
 $idcategoria =  $_POST['idcategoria'];
 $descategoria = $_POST['descategoria'];
 $referencia = $_POST['referencia'];
-$foto = $_POST['foto'];
+$foto = $target;
 $oferta = $_POST['oferta'];
 $novedad = $_POST['novedad'];
 $descripcion = $_POST['descripcion'];
 
- $file_size =$_FILES['foto']['size'];
-
-$target = "img/" . basename($_FILES['foto']['name']);
-
- echo $target;
- echo $file_size;
 
 
-  if(move_uploaded_file($_FILES['foto']['tmp_name'], $target)) 
- { 
- 
- //Tells you if it is all ok 
- echo "The file ". basename( $_FILES['foto']['name']). " has been uploaded, and your information has been added to the directory"; 
- } 
- else { 
- 
- //Gives an error if it is not ok 
- echo "Sorry, there was a problem uploading your file."; 
- } 
 
 
     // gets value sent over search form     
 $min_length = 3;
     // you can set minimum length of the query if you want     
-    if(strlen($referencia) >= $min_length){ // if query length is more or equal minimum length then         
+    if(strlen($referencia) >= $min_length){ // if query length is more or equal minimum length then
+       move_uploaded_file($_FILES['foto']['tmp_name'], $target);          
        $idcategoria = htmlspecialchars($idcategoria); 
         // changes characters used in html to their equivalents, for example: < to &gt;         
        $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion)); 
