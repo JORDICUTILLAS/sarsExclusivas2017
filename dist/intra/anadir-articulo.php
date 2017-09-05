@@ -35,7 +35,7 @@ if (!$_SESSION['logon']){
   </div>
 
   <div class='contentEditForm'>
-    <form class='searchCli editwitdh' style='float:none;' name='form' ACTION='add.php' method='GET'>
+    <form class='searchCli editwitdh' style='float:none;' name='form' ACTION='add.php' method='POST' enctype="multipart/form-data">
 
       <label class='labelEdit'>ID Categoria:</label>
       <input class='inputsLogin inputsEdit' type='text' id="id_cat" name='idcategoria' placeholder=''>
@@ -68,7 +68,7 @@ if (!$_SESSION['logon']){
       <input class='inputsLogin inputsEdit' type='text' name='referencia' placeholder=''>
 
       <label class='labelEdit'>FOTO:</label>
-      <input class='inputsLogin inputsEdit' style ="display: inline-block;" name='foto' type="file" id="foto"> 
+      <input class='inputsLogin inputsEdit' style ="display: inline-block;" name="foto" type="file" id="foto"> 
 
       <label class='labelEdit'>Oferta:</label>
       <input class='inputsLogin inputsEdit' value="0" type='checkbox' id="checkOfer" name='oferta' placeholder=''>

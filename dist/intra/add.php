@@ -40,13 +40,33 @@ if (!$_SESSION['logon']){
 
 
 <?php    
-$idcategoria =  $_GET['idcategoria'];
-$descategoria = $_GET['descategoria'];
-$referencia = $_GET['referencia'];
-$foto = $_GET['foto'];
-$oferta = $_GET['oferta'];
-$novedad = $_GET['novedad'];
-$descripcion = $_GET['descripcion'];
+$idcategoria =  $_POST['idcategoria'];
+$descategoria = $_POST['descategoria'];
+$referencia = $_POST['referencia'];
+$foto = $_POST['foto'];
+$oferta = $_POST['oferta'];
+$novedad = $_POST['novedad'];
+$descripcion = $_POST['descripcion'];
+
+ $file_size =$_FILES['foto']['size'];
+
+$target = "img/" . basename($_FILES['foto']['name']);
+
+ echo $target;
+ echo $file_size;
+
+
+  if(move_uploaded_file($_FILES['foto']['tmp_name'], $target)) 
+ { 
+ 
+ //Tells you if it is all ok 
+ echo "The file ". basename( $_FILES['foto']['name']). " has been uploaded, and your information has been added to the directory"; 
+ } 
+ else { 
+ 
+ //Gives an error if it is not ok 
+ echo "Sorry, there was a problem uploading your file."; 
+ } 
 
 
     // gets value sent over search form     
