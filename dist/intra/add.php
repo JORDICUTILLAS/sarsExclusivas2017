@@ -31,8 +31,8 @@ if (!$_SESSION['logon']){
         <input type="text" class="inputsLogin inputsearch" name="nombre_cliente" placeholder="Nombre o Apellidos">
         <input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR PRODUCTO">           
     </form>
-    <a href="todos-articulos.php" Title="BUSCAR TODOS LOS CLIENTES"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS CLIENTES"></a>
-        <a href="anadir-articulo.php" Title="AÑADIR CLIENTE"><img src="img/add.png" class="imgAll" alt="AÑADIR CLIENTE"></a>
+   <a href="todos-articulos.php" Title="BUSCAR TODOS LOS ARTICULOS"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS ARTICULOS"></a>
+        <a href="anadir-articulo.php" Title="AÑADIR ARTICULOS"><img src="img/add.png" class="imgAll" alt="AÑADIR ARTICULOS"></a>
         <a href="reporteexcel.php" Title="DESCARGAR INFORME"><img src="img/excel.png" class="imgAll" alt="DESCARGAR INFORME"></a>
         <a href="productos.php" Title="IR AL INICIO"><img src="img/home.png" class="imgAll" alt="IR AL INICIO"></a>
 </div>    
@@ -114,7 +114,7 @@ if ($conexion->query($query) === TRUE) {
     <div class="contentNameOk" style="margin: 0 auto; display: block;">
         <p> <?php echo $referencia ?> </p>        
         <p style="font-size: 20px;"> Actualizado correctamente!</p>
-        <a href="clientes.php">volver</a>
+        <a href="productos.php">volver</a>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> <!–- Importante llamar antes a jQuery para que funcione bootstrap.min.js   -–> 
