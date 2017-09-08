@@ -110,6 +110,10 @@ background: transparent;
 	background: url(../img/arrowTop.png) no-repeat 0px 20px;
 }
 
+.error{
+    border: 1px solid red;
+}
+
 .scrollToTop:hover{
 	text-decoration:none;
 }

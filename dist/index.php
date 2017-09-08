@@ -209,7 +209,7 @@
 							<textarea style="height:100px;" class="input-textContact" id="pedido" name="Pedido" placeholder="Consulta" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Consulta'"></textarea> 
 						</div>
 
-						<button class="btn-contact">CONTACTAR</button>
+						<button class="btn-contact" id="sendForm">CONTACTAR</button>
 					</form>
 				</div>
 			</div>
@@ -244,6 +244,65 @@
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	})();
 
+	</script>
+
+	<script type="text/javascript">	
+	function validaEmailPf(){
+		var email_usuario = $('input[name="Email"]').val();
+		if(email_usuario.length == 0 ){
+			$('input[name="Email"]').prev().show();    
+			$('input[name="Email"]').addClass('error');    
+		}else{
+			$('input[name="Email"]').prev().hide(); 
+			$('input[name="Email"]').removeClass('error');
+		}
+	}
+
+	function validaName(){
+		var email_usuario = $('input[name="Name"]').val();
+		if(email_usuario.length == 0 ){
+			$('input[name="Name"]').prev().show();    
+			$('input[name="Name"]').addClass('error');    
+		}else{
+			$('input[name="Name"]').prev().hide();
+			$('input[name="Name"]').removeClass('error');
+		}
+	}
+
+	function validaMessage(){
+		var email_usuario = $('textarea[name="Pedido"]').val();
+		if(email_usuario.length == 0 ){ 
+			$('textarea[name="Pedido"]').prev().show();   
+			$('textarea[name="Pedido"]').addClass('error');    
+		}else{ 
+			$('textarea[name="Pedido"]').prev().hide();  
+			$('textarea[name="Pedido"]').removeClass('error');
+		}
+	}
+
+
+	$('input[name="Email"]').focusout(function(){
+		validaEmailPf(); 
+	});
+
+	$('input[name="Name"]').focusout(function(){
+		validaName(); 
+	});
+	
+
+	$('textarea[name="Pedido"]').focusout(function(){
+		validaMessage(); 
+	});
+
+
+	$('#sendForm').click(function(ev){ 
+		validaEmailPf();
+		validaName();		
+		validaMessage();
+		if ($('.error:visible').length > 0){
+			ev.preventDefault();
+		}  
+	});
 	</script>
 
 </body>
