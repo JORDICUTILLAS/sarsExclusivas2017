@@ -4,7 +4,7 @@ if (!session_id()) session_start();
 if (!$_SESSION['logon']){ 
     header("Location:index.php");
     die();
-    }
+}
 ?>
 
 
@@ -24,46 +24,62 @@ if (!$_SESSION['logon']){
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body><div class="headSearch" style="position:inherit">
-        <H1 class="title">Editar Articulo OK!</H1>           
-        <form class="searchCli" name="form" ACTION="search.php" method="GET">           
-            <input type="text" class="inputsLogin inputsearch" name="nombre_cliente" placeholder="Nombre o Apellidos">
-            <input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR PRODUCTOS">           
-        </form>
-        <a href="todos-articulos.php" Title="BUSCAR TODOS LOS ARTICULOS"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS ARTICULOS"></a>
-        <a href="anadir-articulo.php" Title="AÑADIR ARTICULOS"><img src="img/add.png" class="imgAll" alt="AÑADIR ARTICULOS"></a>
-        <a href="reporteexcel.php" Title="DESCARGAR INFORME"><img src="img/excel.png" class="imgAll" alt="DESCARGAR INFORME"></a>
-        <a href="productos.php" Title="IR AL INICIO"><img src="img/home.png" class="imgAll" alt="IR AL INICIO"></a>
-    </div>    
+    <H1 class="title">Editar Articulo OK!</H1>           
+    <form class="searchCli" name="form" ACTION="search.php" method="GET">           
+        <input type="text" class="inputsLogin inputsearch" name="nombre_cliente" placeholder="Nombre o Apellidos">
+        <input class="btnLogin btnsearch" type="submit" name="enviar" value="BUSCAR PRODUCTOS">           
+    </form>
+    <a href="todos-articulos.php" Title="BUSCAR TODOS LOS ARTICULOS"><img src="img/icon-all.png" class="imgAll" alt="BUSCAR TODOS LOS ARTICULOS"></a>
+    <a href="anadir-articulo.php" Title="AÑADIR ARTICULOS"><img src="img/add.png" class="imgAll" alt="AÑADIR ARTICULOS"></a>
+    <a href="reporteexcel.php" Title="DESCARGAR INFORME"><img src="img/excel.png" class="imgAll" alt="DESCARGAR INFORME"></a>
+    <a href="productos.php" Title="IR AL INICIO"><img src="img/home.png" class="imgAll" alt="IR AL INICIO"></a>
+</div>    
 
-    <?php
-    $id = $_GET['id'];
-    $idcategoria = $_GET['idcategoria'];
-    $descategoria = $_GET['descategoria'];
-    $descripcion = $_GET['descripcion'];
-    $referencia = $_GET['referencia'];
-    $foto = $_GET['foto'];
-    $foto_info = $_GET['foto_info'];
-    $oferta = $_GET['oferta'];
-    $novedad = $_GET['novedad'];    
+<?php
+
+$target = "../img/" . basename($_FILES['foto']['name']);
+
+$fotoInsert = basename($_FILES['foto']['name']);
+
+$id = $_POST['id'];
+$idcategoria = $_POST['idcategoria'];
+$descategoria = $_POST['descategoria'];
+$descripcion = $_POST['descripcion'];
+$referencia = $_POST['referencia'];
+$foto = $target;
+$oferta = $_POST['oferta'];
+$novedad = $_POST['novedad'];    
     // gets value sent over search form     
-    
+$min_foto= 0;
     // you can set minimum length of the query if you want     
     if(strlen($id) >= $min_length){ // if query length is more or equal minimum length then         
      $id = htmlspecialchars($id); 
         // changes characters used in html to their equivalents, for example: < to &gt;         
      $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));
      @mysql_query("SET NAMES 'utf8'",$link);
-      $conexion->set_charset("utf8");        
-     $query = "UPDATE productos 
-     SET id_categoria = '$idcategoria', desc_categoria = '$descategoria', descripcion = '$descripcion', referencia = '$referencia', foto = '$foto', foto_info = '$foto_info', oferta = '$oferta', novedad = '$novedad'
-     WHERE id = '$id'";
+     $conexion->set_charset("utf8");
+
+     if( strlen($fotoInsert) > $min_foto ) {
+
+        move_uploaded_file($_FILES['foto']['tmp_name'], $target);
+
+         $query = "UPDATE productos 
+         SET id_categoria = '$idcategoria', desc_categoria = '$descategoria', descripcion = '$descripcion', referencia = '$referencia', foto = '$foto', oferta = '$oferta', novedad = '$novedad'
+         WHERE id = '$id'";
+
+     }else {
+
+              $query = "UPDATE productos 
+         SET id_categoria = '$idcategoria', desc_categoria = '$descategoria', descripcion = '$descripcion', referencia = '$referencia', oferta = '$oferta', novedad = '$novedad'
+         WHERE id = '$id'";
+     }
 
      @mysql_query("SET NAMES 'utf8'",$link);
-      $conexion->set_charset("utf8");  
-        
+     $conexion->set_charset("utf8");  
+
 
      if ($conexion->query($query) === TRUE) {
-        
+
         $conexion->close();            
 
         $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));        
@@ -71,13 +87,13 @@ if (!$_SESSION['logon']){
 
         $resultado = $conexion->query($query); 
         if(mysqli_num_rows($resultado) > 0){ // if one or more rows are returned do following
-                         
+
             while($results = mysqli_fetch_array($resultado)){
             // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop             
                 echo "ok";
                 $conexion->close(); 
             }
-}
+        }
 
     } else {
         echo "Error updating record: " . $conexion->error;
@@ -92,10 +108,9 @@ if (!$_SESSION['logon']){
 
 
     <div class="contentNameOk" style="margin: 0 auto; display: block;">
-        <p> <?php echo $nombre ?> </p>
-        <p> <?php echo $apellidos ?></p>
+        <p> <?php echo $referencia ?> </p>        
         <p style="font-size: 20px;"> Actualizado correctamente!</p>
-         <a href="productos.php">volver</a>
+        <a href="productos.php">volver</a>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> <!–- Importante llamar antes a jQuery para que funcione bootstrap.min.js   -–> 

@@ -41,7 +41,7 @@ if (!$_SESSION['logon']){
 
 <?php  
 
-$target = "img/" . basename($_FILES['foto']['name']);
+$target = "../img/" . basename($_FILES['foto']['name']);
 
 $idcategoria =  $_POST['idcategoria'];
 $descategoria = $_POST['descategoria'];

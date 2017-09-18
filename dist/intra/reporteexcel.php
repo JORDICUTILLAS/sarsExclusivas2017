@@ -1,12 +1,12 @@
 <?php
-	include "Connections/registro_user.php";
+	include "Connections/productos.php";
 
    $conexion = mysqli_connect($db_server,$db_user,$db_pass,$db_name) or die ("Error: ".mysqli_error($conexion));
 	if (mysqli_connect_errno()) {
     	printf("La conexión con el servidor de base de datos falló: %s\n", mysqli_connect_error());
     	exit();
 	}
-	$consulta = "SELECT * FROM clientes";
+	$consulta = "SELECT * FROM productos";
 	$resultado = $conexion->query($consulta);
 	if($resultado->num_rows > 0 ){
 						
@@ -30,8 +30,8 @@
 							 ->setKeywords("reporte alumnos carreras")
 							 ->setCategory("Reporte excel");
 
-		$tituloReporte = "Relación de Clientes";
-		$titulosColumnas = array('ID', 'fecha_alta', 'nombre', 'apellidos', 'dni', 'email', 'telefono', 'direccion', 'codigoPostal', 'sexo', 'cumpleanos', 'obs', 'tinte', 'timeact');
+		$tituloReporte = "Relación de Productos";
+		$titulosColumnas = array('id', 'id_categoria', 'desc_categoria', 'descripcion', 'referencia', 'foto', 'foto_info', 'oferta', 'novedad');
 		
 		$objPHPExcel->setActiveSheetIndex(0)
         		    ->mergeCells('A1:D1');
@@ -47,32 +47,20 @@
             		->setCellValue('F3',  $titulosColumnas[5])
             		->setCellValue('G3',  $titulosColumnas[6])
             		->setCellValue('H3',  $titulosColumnas[7])
-            		->setCellValue('I3',  $titulosColumnas[8])
-            		->setCellValue('J3',  $titulosColumnas[9])
-            		->setCellValue('K3',  $titulosColumnas[10])
-            		->setCellValue('L3',  $titulosColumnas[11])
-            		->setCellValue('M3',  $titulosColumnas[12])
-            		->setCellValue('N3',  $titulosColumnas[13]);
-		
+                    ->setCellValue('I3',  $titulosColumnas[8]); 
 		//Se agregan los datos de los alumnos
 		$i = 4;
 		while ($fila = $resultado->fetch_array()) {
 			$objPHPExcel->setActiveSheetIndex(0)
-        		    ->setCellValue('A'.$i,  $fila['ID'])
-		            ->setCellValue('B'.$i,  $fila['fecha_alta'])
-        		    ->setCellValue('C'.$i,  $fila['nombre'])
-            		->setCellValue('D'.$i,  $fila['apellidos'])
-            		->setCellValue('E'.$i,  $fila['dni'])
-            		->setCellValue('F'.$i,  $fila['email'])
-            		->setCellValue('G'.$i,  $fila['telefono'])
-            		->setCellValue('H'.$i,  $fila['direccion'])
-            		->setCellValue('I'.$i,  $fila['codigoPostal'])
-            		->setCellValue('J'.$i,  $fila['sexo'])
-            		->setCellValue('K'.$i,  $fila['cumpleanos'])
-            		->setCellValue('L'.$i,  $fila['obs'])
-            		->setCellValue('M'.$i,  $fila['tinte'])
-            		->setCellValue('N'.$i,  $fila['timeact']);
-            		
+        		    ->setCellValue('A'.$i,  $fila['id'])
+		            ->setCellValue('B'.$i,  $fila['id_categoria'])
+        		    ->setCellValue('C'.$i,  $fila['desc_categoria'])
+            		->setCellValue('D'.$i,  $fila['descripcion'])
+            		->setCellValue('E'.$i,  $fila['referencia'])
+            		->setCellValue('F'.$i,  $fila['foto'])
+            		->setCellValue('G'.$i,  $fila['foto_info'])
+            		->setCellValue('H'.$i,  $fila['oferta'])
+                    ->setCellValue('I'.$i,  $fila['novedad']);
 					$i++;
 		}
 		
@@ -165,9 +153,9 @@
            	)
         ));
 		 
-		$objPHPExcel->getActiveSheet()->getStyle('A1:N1')->applyFromArray($estiloTituloReporte);
-		$objPHPExcel->getActiveSheet()->getStyle('A3:N3')->applyFromArray($estiloTituloColumnas);		
-		$objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:N".($i-1));
+		$objPHPExcel->getActiveSheet()->getStyle('A1:I1')->applyFromArray($estiloTituloReporte);
+		$objPHPExcel->getActiveSheet()->getStyle('A3:I3')->applyFromArray($estiloTituloColumnas);		
+		$objPHPExcel->getActiveSheet()->setSharedStyle($estiloInformacion, "A4:I".($i-1));
 				
 		for($i = 'A'; $i <= 'D'; $i++){
 			$objPHPExcel->setActiveSheetIndex(0)			
@@ -175,7 +163,7 @@
 		}
 		
 		// Se asigna el nombre a la hoja
-		$objPHPExcel->getActiveSheet()->setTitle('Alumnos');
+		$objPHPExcel->getActiveSheet()->setTitle('Productos');
 
 		// Se activa la hoja para que sea la que se muestre cuando el archivo se abre
 		$objPHPExcel->setActiveSheetIndex(0);
@@ -185,10 +173,11 @@
 
 		// Se manda el archivo al navegador web, con el nombre que se indica (Excel2007)
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		header('Content-Disposition: attachment;filename="ReporteClientes.xlsx"');
+		header('Content-Disposition: attachment;filename="ReportProductos.xlsx"');
 		header('Cache-Control: max-age=0');
 
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+        ob_end_clean();
 		$objWriter->save('php://output');
 		exit;
 		

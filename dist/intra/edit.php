@@ -53,7 +53,7 @@ if (!$_SESSION['logon']){
             // $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop             
                 echo "
                 <div class='contentEditForm'>
-                <form class='searchCli editwitdh' style='float:none;' name='form' ACTION='update.php' method='GET'>               
+                <form class='searchCli editwitdh' style='float:none;' name='form' ACTION='update.php' method='POST' enctype='multipart/form-data'>               
                 <input class='inputsLogin inputsEdit' type='hidden' value='".$results['id']."' name='id' placeholder='".$results['id']."'>
                 
                 <label class='labelEdit'>ID CATEGORIA:</label>
@@ -70,11 +70,9 @@ if (!$_SESSION['logon']){
                 <input class='inputsLogin inputsEdit' type='text' value='".$results['referencia']."' name='referencia' placeholder='".$results['referencia']."'>
                 
                 <label class='labelEdit'>FOTO:</label>
-                <input class='inputsLogin inputsEdit' type='text' value='".$results['foto']."' name='foto' placeholder='".$results['foto']."'>
-                
-                <label class='labelEdit'>FOTO INFO:</label>
-                <input class='inputsLogin inputsEdit' type='text' value='".$results['foto_info']."' name='foto_info' placeholder='".$results['foto_info']."'>
-                
+                <input class='inputsLogin inputsEdit' style ='display: block;' name='foto' type='file' id='foto' value='".$results['foto']."'>                 
+
+                               
                 <label class='labelEdit'>OFERTA:</label>
                 <input class='inputsLogin inputsEdit' type='checkbox' id='checkOfer' value='".$results['oferta']."' name='oferta' placeholder='".$results['oferta']."'>
 
